@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https: http:; connect-src 'self' https: http:; font-src 'self' data:;">
+  <title>同学录地图</title>
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="vendor/markercluster/MarkerCluster.css">
+  <link rel="stylesheet" href="vendor/markercluster/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="css/style.css">
+<script src="js/site-data.js"></script>
+</head>
+<body>
+  <header id="toolbar">
+    <div class="brand">
+      <button class="btn icon-only mobile-only" id="btnMenu" title="同学列表">☰</button>
+      <span class="brand-logo">🎓</span>
+      <span class="brand-name">同学录地图</span>
+      <span class="brand-count" id="totalCount"></span>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn desktop-only" id="btnExport">⬇ <span class="bt">导出</span></button>
+      <button class="btn desktop-only" id="btnResetView" title="回到全国视图">🗺 <span class="bt">全国视图</span></button>
+      <button class="btn mobile-only" id="btnPanel" title="省份概况">📊 <span class="bt">概况</span></button>
+      <button class="btn" id="btnSettings">⚙ <span class="bt">设置</span></button>
+    </div>
+  </header>
+
+  <main id="layout">
+    <aside id="sidebar">
+      <div class="sb-search">
+        <input id="searchInput" placeholder="🔍 搜索姓名 / 大学 / 城市…">
+      </div>
+      <div id="filterChip" class="filter-chip" style="display:none"></div>
+      <div class="sb-tree" id="tree"></div>
+      <div class="sb-list-head">同学列表 <span class="count-badge" id="listCount">0</span></div>
+      <div class="sb-list" id="stuList"></div>
+    </aside>
+
+    <section id="mapPane">
+      <div id="map"></div>
+    </section>
+
+    <aside id="rightPanel">
+      <div id="panelTabs">
+        <button class="tab active" data-tab="province">📊 省份概况</button>
+        <button class="tab" data-tab="detail">👤 同学详情</button>
+      </div>
+      <div id="provincePanel" class="panel-body"></div>
+      <div id="detailPanel" class="panel-body hidden"></div>
+    </aside>
+  </main>
+
+  <div id="mobileBackdrop"></div>
+  <div id="toast" class="toast"></div>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="vendor/markercluster/leaflet.markercluster.js"></script>
+  <script src="js/coord.js"></script>
+  <script src="js/crs-baidu.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/cities.js"></script>
+  <script src="js/web-api.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/panels.js"></script>
+  <script src="js/dialogs.js"></script>
+  <script src="js/mobile.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
